@@ -64,18 +64,18 @@ describe("HelloWorld.sol", async () => {
     });
 
     it("Votes are counted quadratically", async () => {
-      // 1 vote on 1
+      // 1 credit -> 1 vote on 1
       await bob.vote(1, 1);
       expect(await contract.getVoteCount(1)).to.equal(1);
       expect(await contract.voteAllowance(bobAddress)).to.equal(9);
 
-      // 4 votes on 2
-      await bob.vote(4, 2); // 4 => 2;
+      // 4 credits -> 2 votes on 2
+      await bob.vote(4, 2);
       expect(await contract.getVoteCount(2)).to.equal(2);
       expect(await contract.voteAllowance(bobAddress)).to.equal(5);
 
-      // 3 votes on 2
-      await sue.vote(9, 2); // 9 => 3
+      // 9 credits -> 3 votes on 2
+      await sue.vote(9, 2);
       expect(await contract.getVoteCount(2)).to.equal(5);
     });
   });
