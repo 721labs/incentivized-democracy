@@ -50,7 +50,7 @@ contract HelloWorld {
     require(option == 1 || option == 2, "Bad option");
 
     // In quadratic voting, the square root of the number of votes cast are applied;
-    // this enforces an exponential marginal cost on power concentration and acts to
+    // this enforces a linearly increasing marginal cost on power concentration and acts to
     // counterbalance our vote award / dilution system.
     if (count == 1) {
       votes[option][msg.sender] += 1;
